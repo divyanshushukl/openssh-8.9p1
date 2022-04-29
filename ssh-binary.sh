@@ -6,6 +6,8 @@ dirName="/tmp/openssh-8.9p1"
 cd -- "$dirName"
 wget --no-cache -c https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.9p1.tar.gz
 tar -xvzf openssh-8.9p1.tar.gz -C /tmp/
-./configure --with-kerberos5 --with-md5-passwords --with-pam --with-selinux --with-privsep-path=/var/lib/sshd/ --sysconfdir=/etc/ssh
+pwd
+ls -la
+./openssh-8.9p1/configure --with-kerberos5 --with-md5-passwords --with-pam --with-selinux --with-privsep-path=/var/lib/sshd/ --sysconfdir=/etc/ssh
 make
 make install
