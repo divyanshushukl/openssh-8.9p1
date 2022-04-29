@@ -14,3 +14,9 @@ ls -la
 ./configure --with-kerberos5 --with-md5-passwords --with-pam --with-selinux --with-privsep-path=/var/lib/sshd/ --sysconfdir=/etc/ssh
 make
 sudo make install
+sudo sed 's/sbin\/sshd/local\/sbin\/sshd/g' /etc/systemd/system/sshd.service | sudo tee /etc/systemd/system/sshd.service.bak
+sudo mv /etc/systemd/system/sshd.service.bak /etc/systemd/system/sshd.service
+sudo cd /usr/sbin
+# Back up existing
+sudo mv /usr/sbin/sshd /usr/sbin/sshd.bak                 
+sudo cp /usr/local/sbin/sshd /usr/sbin/sshd
