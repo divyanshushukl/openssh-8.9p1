@@ -5,11 +5,9 @@ sudo chown -R root:sys /var/lib/sshd/
 dirName="/tmp/openssh-8.9p1"
 cd -- "$dirName"
 wget --no-cache -c https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.9p1.tar.gz
-pwd
-ls -la
 tar -xvzf openssh-8.9p1.tar.gz -C /tmp/
-pwd
-ls -la
+sleep 10
+
 ./openssh-8.9p1/configure --with-kerberos5 --with-md5-passwords --with-pam --with-selinux --with-privsep-path=/var/lib/sshd/ --sysconfdir=/etc/ssh
 make
 make install
